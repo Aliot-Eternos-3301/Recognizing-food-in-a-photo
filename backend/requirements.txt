@@ -1,0 +1,8 @@
+Flask
+Pillow
+torch
+torchvision
+numpy
+# Для загрузки модели YOLOv5 через torch.hub
+# ultralytics/yolov5 будет скачан автоматически при первом запуске
+flask-cors

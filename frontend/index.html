@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Распознавание еды на фото</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="bg-anim"></div>
+    <div id="theme-anim-overlay"></div>
+    <button id="themeToggle" style="position: absolute; top: 20px; right: 20px;">🌙 Тёмная тема</button>
+    <h1>Распознавание еды на фото</h1>
+    <div class="main-layout">
+        <div class="main-content">
+            <div id="greeting-block" class="info-block">
+                <h2>Добро пожаловать!</h2>
+                <p>Это сервис для автоматического распознавания еды на фотографиях с помощью нейросетей.</p>
+            </div>
+            <div id="instruction-block" class="info-block">
+                <h3>Как пользоваться:</h3>
+                <ol>
+                    <li>Нажмите <b>«Выбрать файл»</b> и загрузите фотографию с едой (JPG или PNG).</li>
+                    <li>Нажмите <b>«Загрузить и распознать»</b>.</li>
+                    <li>Дождитесь результата: появится исходное и размеченное изображение, а также список найденных объектов.</li>
+                    <li>Вы можете скачать изображение с разметкой.</li>
+                </ol>
+            </div>
+            <form id="uploadForm">
+                <input type="file" id="imageInput" accept="image/png, image/jpeg">
+                <button type="submit">Загрузить и распознать</button>
+                <div id="loader" style="display:none; margin-top:10px; text-align:center;">
+                    <span class="loader-spinner"></span>
+                    <span style="margin-left:8px;">Обработка...</span>
+                </div>
+            </form>
+            <div id="preview-block" style="margin:18px auto 0 auto; display:none; text-align:center; max-width:220px;">
+                <div class="preview-frame">
+                    <img id="imagePreview" src="" alt="Превью" style="max-width:180px; max-height:120px; border-radius:8px; box-shadow:0 1px 8px rgba(0,0,0,0.10);">
+                </div>
+            </div>
+            <div id="result" style="display:none;">
+                <h2>Результат</h2>
+                <div>
+                    <p>Исходное изображение:</p>
+                    <img id="originalImage" src="" alt="Исходное изображение" width="300">
+                </div>
+                <div>
+                    <p>Изображение с разметкой:</p>
+                    <img id="markedImage" src="" alt="Размеченное изображение" width="300">
+                    <a id="downloadLink" href="#" download>Скачать размеченное изображение</a>
+                </div>
+                <div>
+                    <h3>Обнаруженные объекты:</h3>
+                    <ul id="objectsList"></ul>
+                </div>
+            </div>
+        </div>
+        <aside class="side-menu">
+            <h3 class="accent-title" style="margin-top:0;">Поддерживаемые классы:</h3>
+            <ul id="classesList">
+                <li><span>🍏</span> яблоко</li>
+                <li><span>🍌</span> банан</li>
+                <li><span>🍕</span> пицца</li>
+                <li><span>🍔</span> бургер</li>
+                <li><span>🥤</span> напиток</li>
+                <li><span>🍰</span> торт</li>
+                <li><span>🥗</span> салат</li>
+                <li><span>🍟</span> картофель фри</li>
+                <li><span>🍦</span> мороженое</li>
+                <li><span>🥣</span> суп</li>
+            </ul>
+        </aside>
+    </div>
+    <footer id="site-footer">
+        <div class="footer-main">Выполнил студент группы <b>И2Вк</b> сервисного отделения</div>
+        <div class="footer-student">Журавлёв Андрей</div>
+        <div class="footer-practice">В рамках производственной практики</div>
+        <div class="footer-org">ГАПОУ КК «Ленинградский социально-педагогический колледж»</div>
+        <div class="footer-contacts">
+            <span>Сферум: <a href="https://sferum.ru/user/id764229296" target="_blank">@id764229296</a></span> |
+            <span>Telegram-канал: <a href="https://t.me/hacks_the_world" target="_blank">@hacks_the_world</a></span>
+        </div>
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>
